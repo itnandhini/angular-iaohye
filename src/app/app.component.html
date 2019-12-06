@@ -5,36 +5,30 @@
 <div [formGroup]="form">
   <div *ngIf="days" formArrayName="days">
 
-    <div *ngFor="let condition of days.controls; let i=index" [formGroupName]="i">
+    <div *ngFor="let condition of days.controls; let i=index" [formGroupName]="i" style="border:1px solid red;">
 
 
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="{{ 'acceptable' + i}}" formControlName="days"
+        <input type="radio" formControlName="days"
             class="custom-control-input" [value]="ACCEPTABILITY.ALL" (click)="clickMe('All')">
         <label class="custom-control-label" for="{{ 'acceptable' + i}}">All days</label>
       </div>
 
       <div class="custom-control custom-radio custom-control-inline" >
-        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days"
+        <input type="radio" formControlName="days"
             class="custom-control-input" [value]="ACCEPTABILITY.FIVE" (click)="clickMe('Five')">
         <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Week Days</label>
       </div>
         <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days" (click)="clickMe('Two')"
+        <input type="radio" formControlName="days" (click)="clickMe('Two')"
             class="custom-control-input" [value]="ACCEPTABILITY.TWO">
         <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Week ends</label>
       </div>
         <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days" (click)="clickMe('Any')"
+        <input type="radio" formControlName="days" (click)="clickMe('Any')"
             class="custom-control-input" [value]="ACCEPTABILITY.ANY">
         <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Custom</label>
       </div>
-
-    </div>
-
-    <button type="button" class="btn btn-outline-dark btn-block" (click)="addCondition()">
-            <i class="fa fa-plus fa-lg mr-3"></i>ADD A NEW CONDITION</button>
-  </div>
   <table>
 	<tr *ngFor="let user of users">
 		<td>
@@ -43,6 +37,12 @@
 		</td>
 	</tr>
 </table>
+    </div>
+
+    <button type="button" class="btn btn-outline-dark btn-block" (click)="addCondition()">
+            <i class="fa fa-plus fa-lg mr-3"></i>ADD A NEW CONDITION</button>
+  </div>
+
 </div>
 
 <div>

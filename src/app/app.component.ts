@@ -66,7 +66,8 @@ export class AppComponent {
   addCondition() {
     this.days.push(
       this.fb.group({
-        days: ["", Validators.required]
+        days: ["", Validators.required],
+        dayArray: this.fb.array([])
       })
     );
     console.log("conditions", this.days);
