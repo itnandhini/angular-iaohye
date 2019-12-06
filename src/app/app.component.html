@@ -32,7 +32,7 @@
   <table>
 	<tr *ngFor="let user of users">
 		<td>
-			<button [disabled]="stopEvent" [ngClass]="{'btn btn-danger':!user.active, 'btn btn-success':user.active}" (click)="click(user,user.id)"> {{user.active ? user.name:user.name}}
+			<button [disabled]="stopEvent" [ngClass]="{'btn btn-danger':!user.active, 'btn btn-success':user.active}" formArrayName="dayArray" (click)="click(user,user.id)"> {{user.active ? user.name:user.name}}
     </button>
 		</td>
 	</tr>

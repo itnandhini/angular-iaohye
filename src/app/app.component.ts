@@ -62,7 +62,9 @@ export class AppComponent {
   get days(): FormArray {
     return this.form.get("days") as FormArray;
   }
-
+  get dayArray(): FormArray {
+    return this.form.get("dayArray") as FormArray;
+  }
   addCondition() {
     this.days.push(
       this.fb.group({
@@ -96,12 +98,13 @@ export class AppComponent {
         break;
     }
   }
-    click(user, id) {
+  click(user, id) {
     if (this.testArray.indexOf(user.name) !== -1) {
       var index = this.testArray.indexOf(user.name);
       this.testArray.splice(index, 1);
       alert(this.testArray);
     } else {
+  
       this.testArray.push(user.name);
       alert(this.testArray);
     }
