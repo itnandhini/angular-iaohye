@@ -1,0 +1,42 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<div [formGroup]="form">
+  <div *ngIf="days" formArrayName="days">
+
+    <div *ngFor="let condition of days.controls; let i=index" [formGroupName]="i">
+
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="{{ 'acceptable' + i}}" formControlName="days"
+            class="custom-control-input" [value]="ACCEPTABILITY.ALL">
+        <label class="custom-control-label" for="{{ 'acceptable' + i}}">All days</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days"
+            class="custom-control-input" [value]="ACCEPTABILITY.FIVE">
+        <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Week Days</label>
+      </div>
+        <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days"
+            class="custom-control-input" [value]="ACCEPTABILITY.TWO">
+        <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Week ends</label>
+      </div>
+        <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="{{ 'unacceptable' + i}}" formControlName="days"
+            class="custom-control-input" [value]="ACCEPTABILITY.ANY">
+        <label class="custom-control-label" for="{{ 'unacceptable' + i}}">Custom</label>
+      </div>
+
+    </div>
+
+    <button type="button" class="btn btn-outline-dark btn-block" (click)="addCondition()">
+            <i class="fa fa-plus fa-lg mr-3"></i>ADD A NEW CONDITION</button>
+  </div>
+</div>
+
+<div>
+  <pre>{{ form.value | json }}</pre>
+</div>
